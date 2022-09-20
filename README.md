@@ -21,3 +21,9 @@ User appuser
 ProxyCommand ssh gateway nc %h %p
 ```
 2. Подключиться к ```someinternalhost``` с помощью команды ```ssh someinternalhost```
+
+##Данные для подключения:
+```
+bastion_IP = 51.250.14.3
+someinternalhost_IP = 10.128.0.28
+```
