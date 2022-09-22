@@ -27,3 +27,9 @@ https://51.250.14.3.sslip.io/
 bastion_IP = 51.250.14.3
 someinternalhost_IP = 10.128.0.28
 ```
+
+## Данные для подключения к reddit:
+```
+testapp_IP = 51.250.88.90
+testapp_port = 9292
+```
