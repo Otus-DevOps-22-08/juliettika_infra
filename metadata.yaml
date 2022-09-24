@@ -1,0 +1,35 @@
+#cloud-config
+disable_root: true
+timezone: Europe/Moscow
+repo-update: true
+repo-upgrade: true
+
+users:
+  - name: yc-user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEbeS73pGht5iVUR+xza/pxQsGq4CW9UCbCh4WTvU/Rxu64pWB+zg+qt6KDCPPGm05+edzsjJyf5BNCSuWW0zWBYI0tCIzuvTOmA7WdF+e2kdl1CZ2N40eQhcwn6eYLDfWACvS2NpWjbFohcJ0ZKIUVZyZdgAkJtZNtFI0EY9v6CSdDQ5XW4UZpEVbd02Hnwdi22Oc03F/40PH8Afk9rUWLqUX50yRZC8DSkyfsYzkqHjKy1HXvsyd23reoDPxnKTyU8zQjdcvInvSHMhhr6bKlfXXXi4Ck07LKO7GB5Yn2kpL31W92svfboyBw7Pbd4tSCj+Eh2FFsCFpoTqGOLyX
+
+write_files:
+ - path: /home/yc-user/start.sh
+   permissions: '0777'
+   content: |
+     #!/bin/sh
+     apt update
+     apt install -y ruby-full ruby-bundler build-essential
+     apt-get install apt-transport-https ca-certificates git -y
+     apt install -y mongodb
+     systemctl start mongodb
+     systemctl enable mongodb
+     cd /home/yc-user
+     apt -y install git
+     git clone -b monolith https://github.com/express42/reddit.git
+     cd reddit && bundle install
+     puma -d
+runcmd:
+ - [ bash, /home/yc-user/start.sh ]
+
+final-message: |
+  cloud-init has finished
