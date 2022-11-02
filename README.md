@@ -58,8 +58,14 @@ yc compute instance create --name reddit-app-metadata --hostname reddit-app-meta
    Созданная ВМ ```http://84.201.175.22:9292/```
 6. Создан скрипт ```config-scripts/create-reddit-vm.sh```
 
-## Terraform
+## Terraform 1
 1. Созданы instances из образа reddit-base с помощью terraform и переменной count:
    1. reddit-app-0 ```http://51.250.11.64:9292/```
    2. reddit-app-1 ```http://178.154.221.249:9292/```
 2. Развернут и проверен load balancer: ```http://178.154.226.240/```
+
+## Terraform 2
+1. Приложение и БД вынесены в отдельные модули
+2. Создана инфраструктура для двух окружений: stage и prod
+3. Проверена корректность создания ресурсов
+4. Настроено хранение стейт файла в удаленном бекенде (backend.tf)
