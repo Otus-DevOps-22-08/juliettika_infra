@@ -1,4 +1,6 @@
 #!/bin/bash
+apt update
+sleep 30s
 apt-get install apt-transport-https ca-certificates git -y
 if ! type "git" > /dev/null;
 then
