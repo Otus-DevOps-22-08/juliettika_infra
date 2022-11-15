@@ -1,4 +1,5 @@
-- name: Configure application
+---
+- name: Configure App
   hosts: app
   become: true
   roles:
