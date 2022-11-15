@@ -17,3 +17,5 @@
 .terraform/
 /terraform/.terraform.lock.hcl
 *.retry
+jdauphant.nginx
+vault.key

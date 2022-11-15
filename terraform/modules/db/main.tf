@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = "0.81.0"
+    }
+  }
+}
 resource "yandex_compute_instance" "db" {
   count = var.instance_count
   name  = "reddit-db-${count.index}"
