@@ -90,3 +90,4 @@ yc compute instance create --name reddit-app-metadata --hostname reddit-app-meta
 2. Описали два окружения: stage и prod
 3. Использовали коммьюнити роль nginx
 4. Использовали Ansible Vault для окружений
+5. Итоговое приложение reddit ```http://84.252.131.206:80/```
