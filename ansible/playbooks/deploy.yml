@@ -1,10 +1,8 @@
----
 - name: Deploy application
   hosts: app
   become: true
   tasks:
     - name: install git
-      become: true
       apt: name=git state=present
 
     - name: Fetch the latest version of application code
@@ -12,7 +10,7 @@
         repo: 'https://github.com/express42/reddit.git'
         dest: /home/ubuntu/reddit
         version: monolith
-      notify: reload puma
+      notify: restart puma
 
     - name: Bundle install
       bundler:
@@ -20,6 +18,6 @@
         chdir: /home/ubuntu/reddit
 
   handlers:
-    - name: reload puma
-      become: true
-      systemd: name=puma state=restarted
+  - name: reload puma
+    become: true
+    systemd: name=puma state=restarted
