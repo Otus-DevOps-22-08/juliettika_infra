@@ -16,3 +16,4 @@
 *.tfvars
 .terraform/
 /terraform/.terraform.lock.hcl
+*.retry
