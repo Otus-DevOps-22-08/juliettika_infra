@@ -5,8 +5,8 @@ terraform {
     bucket     = "juliettika-tf-state"
     region     = "ru-central1"
     key        = "prod/terraform.tfstate"
-    access_key = "111"
-    secret_key = "111"
+    access_key = "YCAJEAN5WDCTnRECO3tt5PKY-"
+    secret_key = "YCN3I8zos-wxjihowETUhwL7fGwYjTMCKNqCiZT-"
 
     skip_region_validation      = true
     skip_credentials_validation = true
