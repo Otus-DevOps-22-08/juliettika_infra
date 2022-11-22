@@ -93,7 +93,7 @@ yc compute instance create --name reddit-app-metadata --hostname reddit-app-meta
 5. Итоговое приложение reddit ```http://84.252.131.206:80/```
 
 ## Ansible 4
-1. Установили virtualbox и vagrant
+1. Установили Virtualbox и Vagrant
 2. Добавили Vagrantfile
 3. Создали виртуалки, описанные в vagrantfile, проверили доступ к ним
 4. Доработали и параметризировали роли, протестировали
